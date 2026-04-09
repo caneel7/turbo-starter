@@ -1,0 +1,32 @@
+{
+  "name": "@turbo-starter/database",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "prisma generate && tsup",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:push": "prisma db push",
+    "db:studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "latest",
+    "@prisma/client": "latest"
+  },
+  "devDependencies": {
+    "@turbo-starter/typescript-config": "0.0.1",
+    "prisma": "latest",
+    "tsup": "latest",
+    "typescript": "latest"
+  }
+}

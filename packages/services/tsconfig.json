@@ -1,0 +1,11 @@
+{
+  "extends": "@turbo-starter/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src"]
+}

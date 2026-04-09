@@ -1,0 +1,35 @@
+{
+  "name": "@turbo-starter/services",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "@better-auth/infra": "^0.1.14",
+    "@turbo-starter/database": "*",
+    "@turbo-starter/queues": "*",
+    "@hono/zod-openapi": "latest",
+    "better-auth": "latest",
+    "hono": "latest",
+    "nodemailer": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@turbo-starter/typescript-config": "*",
+    "@types/nodemailer": "^8.0.0",
+    "tsup": "latest",
+    "typescript": "latest"
+  }
+}
