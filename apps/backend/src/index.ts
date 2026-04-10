@@ -7,10 +7,15 @@ import { cors, logger } from '@turbo-starter/services';
 const app = createOpenAPIApp();
 
 app.use('*', logger())
+const allowedOrigins = [
+  process.env.FRONTEND_ENDPOINT || 'http://localhost:5173',
+  process.env.BASE_URL || 'http://localhost:3000',
+];
+
 app.use(
   '*',
   cors({
-    origin: process.env.FRONTEND_ENDPOINT || 'http://localhost:5173',
+    origin: (origin) => allowedOrigins.includes(origin) ? origin : allowedOrigins[0],
     credentials: true,
     allowMethods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowHeaders: ['Content-Type', 'Authorization'],
