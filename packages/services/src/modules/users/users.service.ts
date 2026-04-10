@@ -19,4 +19,12 @@ export class UserService {
     return UserSchema.parse(user);
   }
 
+  async listUsers(limit: number = 10, page: number = 1): Promise<UserType[]> {
+    const users = await this.db.user.findMany({
+      take: limit,
+      skip: (page - 1) * limit
+    });
+    return users.map(user => UserSchema.parse(user));
+  }
+
 }

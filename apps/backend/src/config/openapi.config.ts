@@ -22,6 +22,10 @@ export function createOpenAPIApp() {
     },
     servers: [
       {
+        url: process.env.DEPLOYMENT_URL || 'http://localhost:3000',
+        description: 'Deployment Server',
+      },
+      {
         url: 'http://localhost:3000',
         description: 'Local Server',
       },
