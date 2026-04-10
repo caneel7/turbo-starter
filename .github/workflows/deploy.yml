@@ -49,6 +49,8 @@ jobs:
           tags: |
             ${{ env.REGISTRY }}/${{ secrets.DOCKER_USERNAME }}/${{ matrix.image }}:latest
             ${{ env.REGISTRY }}/${{ secrets.DOCKER_USERNAME }}/${{ matrix.image }}:${{ github.sha }}
+          build-args: |
+            VITE_API_URL=${{ matrix.app == 'web' && secrets.WEB_URL || '' }}
           cache-from: type=gha,scope=${{ matrix.app }}
           cache-to: type=gha,mode=max,scope=${{ matrix.app }}
 
