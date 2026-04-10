@@ -1,0 +1,23 @@
+{
+  "name": "@turbo-starter/backend",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc && tsc-alias",
+    "start": "node dist/index.js",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "@turbo-starter/services": "*",
+    "@turbo-starter/queues": "*",
+    "@hono/node-server": "latest",
+    "@hono/swagger-ui": "latest"
+  },
+  "devDependencies": {
+    "@turbo-starter/typescript-config": "*",
+    "tsc-alias": "latest",
+    "tsx": "latest",
+    "typescript": "latest"
+  }
+}

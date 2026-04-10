@@ -1,0 +1,38 @@
+{
+  "$schema": "https://turborepo.dev/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "build": {
+      "outputs": ["dist/**"],
+      "cache": false
+    },
+    "dev": {
+      "persistent": true,
+      "cache": false
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "check-types": {
+      "dependsOn": ["^check-types"]
+    },
+    "@turbo-starter/database#build": {
+      "outputs": ["dist/**"],
+      "cache": false
+    },
+    "@turbo-starter/queues#build": {
+      "outputs": ["dist/**"],
+      "cache": false
+    },
+    "@turbo-starter/services#build": {
+      "dependsOn": ["@turbo-starter/database#build", "@turbo-starter/queues#build"],
+      "outputs": ["dist/**"],
+      "cache": false
+    },
+    "@turbo-starter/backend#build": {
+      "dependsOn": ["@turbo-starter/database#build", "@turbo-starter/services#build", "@turbo-starter/queues#build"],
+      "outputs": ["dist/**"],
+      "cache": false
+    }
+  }
+}

@@ -1,0 +1,18 @@
+import { configureStore } from '@reduxjs/toolkit'
+import { useDispatch, useSelector } from 'react-redux'
+import authReducer from './slices/auth.slice'
+import uiReducer from './slices/ui.slice'
+
+export const store = configureStore({
+  reducer: {
+    auth: authReducer,
+    ui: uiReducer
+  }
+})
+
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
+
+// Typed hooks
+export const useAppDispatch = useDispatch.withTypes<AppDispatch>()
+export const useAppSelector = useSelector.withTypes<RootState>()
