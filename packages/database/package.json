@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@turbo-starter/typescript-config": "0.0.1",
+    "@types/node": "^25.6.0",
     "prisma": "latest",
     "tsup": "latest",
     "typescript": "latest"

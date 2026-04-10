@@ -9,12 +9,11 @@ export class UserService {
   ) { }
 
   async findUserById(id: string): Promise<UserType> {
-    const user = this.db.user.findUnique({
+    const user = await this.db.user.findUnique({
       where: {
         id: id
       }
     });
-
     if(!user) throw new ResourceNotFoundException('Cannot Find User');
 
     return UserSchema.parse(user);

@@ -1,4 +1,4 @@
-import { createRoute,  HonoOpenAPIApp,  z } from "@turbo-starter/services";
+import { createRoute, HonoOpenAPIApp, z } from "@turbo-starter/services";
 
 /**
  * Create an OpenAPI-enabled Hono app
@@ -17,24 +17,12 @@ export function createOpenAPIApp() {
     openapi: '3.0.0',
     info: {
       version: '1.0.0',
-      title: 'Boyd Supply Management API',
+      title: 'API',
       description: 'RESTful API built with Hono on Cloudflare Workers',
     },
     servers: [
       {
-        url: 'api.scmthermalva.in',
-        description: 'Production Server',
-      },
-      {
-        url: 'api-dev.scmthermalva.in',
-        description: 'Development Server',
-      },
-      {
-        url: 'api-staging.scmthermalva.in',
-        description: 'Staging Server',
-      },
-      {
-        url: 'http://localhost:9000',
+        url: 'http://localhost:3000',
         description: 'Local Server',
       },
     ],
