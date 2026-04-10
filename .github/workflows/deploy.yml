@@ -22,6 +22,7 @@ jobs:
             dockerfile: apps/queues/Dockerfile
             image: turbo-starter-queues
           - app: web
+            context: apps/web
             dockerfile: apps/web/Dockerfile
             image: turbo-starter-web
 
@@ -42,7 +43,7 @@ jobs:
       - name: Build and push ${{ matrix.app }}
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: ${{ matrix.context || '.' }}
           file: ${{ matrix.dockerfile }}
           push: true
           tags: |
