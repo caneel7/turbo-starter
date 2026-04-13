@@ -32,5 +32,7 @@ COPY --from=builder /app/packages/queues/dist ./packages/queues/dist
 COPY --from=builder /app/packages/queues/package.json ./packages/queues/package.json
 COPY --from=builder /app/packages/services/dist ./packages/services/dist
 COPY --from=builder /app/packages/services/package.json ./packages/services/package.json
+COPY --from=builder /app/packages/better-auth/dist ./packages/better-auth/dist
+COPY --from=builder /app/packages/better-auth/package.json ./packages/better-auth/package.json
 
 CMD ["apps/queues/dist/index.js"]
