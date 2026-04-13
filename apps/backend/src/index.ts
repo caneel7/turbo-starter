@@ -15,7 +15,7 @@ const allowedOrigins = [
 app.use(
   '*',
   cors({
-    origin: (origin) => allowedOrigins.includes(origin) ? origin : allowedOrigins[0],
+    origin: (origin) => allowedOrigins.includes(origin) ? origin : null,
     credentials: true,
     allowMethods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowHeaders: ['Content-Type', 'Authorization'],

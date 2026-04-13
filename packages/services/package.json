@@ -14,22 +14,23 @@
   },
   "scripts": {
     "build": "tsup",
+    "dev": "tsup --watch",
     "lint": "eslint src"
   },
   "dependencies": {
-    "@better-auth/infra": "^0.1.14",
+    "@better-auth/infra": "0.1.14",
     "@turbo-starter/database": "*",
     "@turbo-starter/queues": "*",
-    "@hono/zod-openapi": "latest",
-    "better-auth": "latest",
-    "hono": "latest",
-    "nodemailer": "latest",
-    "zod": "latest"
+    "@hono/zod-openapi": "1.2.4",
+    "better-auth": "1.6.2",
+    "hono": "4.12.12",
+    "nodemailer": "8.0.5",
+    "zod": "4.3.6"
   },
   "devDependencies": {
     "@turbo-starter/typescript-config": "*",
     "@types/nodemailer": "^8.0.0",
-    "tsup": "latest",
-    "typescript": "latest"
+    "tsup": "8.5.1",
+    "typescript": "5.9.2"
   }
 }
