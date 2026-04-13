@@ -48,8 +48,7 @@
     "@turbo-starter/app-queues#build": {
       "dependsOn": ["@turbo-starter/database#build", "@turbo-starter/services#build", "@turbo-starter/queues#build"],
       "outputs": ["dist/**"],
-      "cache": false,
-      "path": "apps/queues"
+      "cache": false
     },
     "@turbo-starter/backend#build": {
       "dependsOn": ["@turbo-starter/database#build", "@turbo-starter/services#build", "@turbo-starter/queues#build"],
