@@ -3,7 +3,7 @@ import { prismaAdapter } from 'better-auth/adapters/prisma'
 import { db } from '@turbo-starter/database'
 import { dash } from '@better-auth/infra'
 import { userQueue } from '@turbo-starter/queues'
-import { BASE_URL } from '@/constants'
+import { BASE_URL } from './constants'
 
 export const auth = betterAuth({
   database: prismaAdapter(db, {
@@ -14,6 +14,18 @@ export const auth = betterAuth({
       apiKey: process.env.BETTER_AUTH_API_KEY
     }),
   ],
+  user: {
+    additionalFields: {
+      firstName: {
+        type: 'string',
+        required: true,
+      },
+      lastName: {
+        type: 'string',
+        required: false,
+      },
+    },
+  },
   emailAndPassword: {
     enabled: true,
     minPasswordLength: 8,

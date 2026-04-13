@@ -1,10 +1,18 @@
 {
-  "extends": "@turbo-starter/typescript-config/tsconfig.json",
   "compilerOptions": {
-    "rootDir": "src",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "rootDir": ".",
+    "declarationDir": "./dist/types",
+    "outDir": "./dist",
+    "lib": ["ESNext"],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
     }
   },
-  "include": ["src"]
+  "include": ["src/**/*.ts"]
 }

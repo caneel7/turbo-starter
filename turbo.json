@@ -25,8 +25,22 @@
       "outputs": ["dist/**"],
       "cache": false
     },
+    "@turbo-starter/better-auth#build": {
+      "outputs": ["dist/**"],
+      "cache": false
+    },
+    "@turbo-starter/web#build": {
+      "dependsOn": ["@turbo-starter/better-auth#build"],
+      "outputs": ["dist/**"],
+      "cache": false
+    },
+    "@turbo-starter/services#dev": {
+      "dependsOn": ["@turbo-starter/database#build", "@turbo-starter/queues#build","@turbo-starter/better-auth#build"],
+      "outputs": ["dist/**"],
+      "cache": false
+    },
     "@turbo-starter/services#build": {
-      "dependsOn": ["@turbo-starter/database#build", "@turbo-starter/queues#build"],
+      "dependsOn": ["@turbo-starter/database#build", "@turbo-starter/queues#build","@turbo-starter/better-auth#build"],
       "outputs": ["dist/**"],
       "cache": false
     },

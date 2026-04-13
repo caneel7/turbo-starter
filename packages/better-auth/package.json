@@ -1,5 +1,5 @@
 {
-  "name": "@turbo-starter/services",
+  "name": "@turbo-starter/better-auth",
   "version": "0.0.1",
   "private": true,
   "main": "./dist/index.js",
@@ -18,17 +18,13 @@
     "lint": "eslint src"
   },
   "dependencies": {
+    "@better-auth/infra": "0.1.14",
     "@turbo-starter/database": "*",
     "@turbo-starter/queues": "*",
-    "@turbo-starter/better-auth": "*",
-    "@hono/zod-openapi": "1.2.4",
-    "hono": "4.12.12",
-    "nodemailer": "8.0.5",
-    "zod": "4.3.6"
+    "better-auth": "1.6.2"
   },
   "devDependencies": {
     "@turbo-starter/typescript-config": "*",
-    "@types/nodemailer": "^8.0.0",
     "tsup": "8.5.1",
     "typescript": "5.9.2"
   }

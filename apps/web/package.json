@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@turbo-starter/better-auth":"*",
     "@reduxjs/toolkit": "2.11.2",
     "@tailwindcss/vite": "4.2.2",
     "better-auth": "1.6.2",

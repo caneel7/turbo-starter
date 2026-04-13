@@ -7,7 +7,8 @@ export const Route = createFileRoute('/_auth/register')({
 })
 
 function RegisterPage() {
-  const [name, setName] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -19,7 +20,13 @@ function RegisterPage() {
     setLoading(true)
     setError('')
 
-    const { error } = await authClient.signUp.email({ name, email, password })
+    const { error } = await authClient.signUp.email({
+     email,
+     firstName,
+     password,
+     lastName,
+     name: `${firstName} ${lastName}`
+    })
 
     if (error) {
       setError(error.message ?? 'Registration failed')
@@ -46,15 +53,27 @@ function RegisterPage() {
     <div className="w-full max-w-md p-8 bg-white rounded-xl shadow-sm">
       <h1 className="text-2xl font-semibold mb-6">Create an account</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <div className="flex flex-col gap-1">
-          <label className="text-sm font-medium">Name</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="border rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-black"
-            required
-          />
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="flex flex-col gap-1">
+            <label className="text-sm font-medium">First name</label>
+            <input
+              type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              className="border rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-black"
+              required
+            />
+          </div>
+          <div className="flex flex-col gap-1">
+            <label className="text-sm font-medium">Last name</label>
+            <input
+              type="text"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              className="border rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-black"
+              required
+            />
+          </div>
         </div>
         <div className="flex flex-col gap-1">
           <label className="text-sm font-medium">Email</label>
