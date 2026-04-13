@@ -26,6 +26,7 @@
       "cache": false
     },
     "@turbo-starter/better-auth#build": {
+      "dependsOn": ["@turbo-starter/database#build", "@turbo-starter/queues#build"],
       "outputs": ["dist/**"],
       "cache": false
     },

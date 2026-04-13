@@ -7,7 +7,6 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "rootDir": ".",
-    "declarationDir": "./dist/types",
     "outDir": "./dist",
     "lib": ["ESNext"],
     "paths": {
