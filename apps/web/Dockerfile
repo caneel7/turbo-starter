@@ -24,6 +24,6 @@ RUN npx turbo build --filter=@turbo-starter/web \
 
 FROM nginx:alpine AS runner
 COPY --from=builder /app/apps/web/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/templates/default.conf.template
+COPY apps/web/nginx.conf /etc/nginx/templates/default.conf.template
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
