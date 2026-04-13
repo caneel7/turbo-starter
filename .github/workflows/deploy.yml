@@ -22,7 +22,6 @@ jobs:
             dockerfile: apps/queues/Dockerfile
             image: turbo-starter-queues
           - app: web
-            context: apps/web
             dockerfile: apps/web/Dockerfile
             image: turbo-starter-web
 
