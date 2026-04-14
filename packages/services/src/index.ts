@@ -9,6 +9,8 @@ export * from '@/modules/users'
 export * from '@/modules/emails/email.service';
 export { logger } from 'hono/logger';
 export { cors } from 'hono/cors';
+export * from 'hono';
+export * from '@/classes/errors';
 
 export class HonoOpenAPIApp extends OpenAPIHono {
 

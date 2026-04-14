@@ -1,7 +1,7 @@
-import { z } from 'zod'
 import { createRoute } from '@/config/openapi.config';
 import { ErrorSchema, HonoOpenAPIApp, ListUsersQuerySchema, UserParamSchema, UserSchema, UserService } from '@turbo-starter/services';
 import { db } from '@turbo-starter/database';
+import { verifySession } from '@/middlewares/verify.session.middleware';
 
 export const userRoutes = new HonoOpenAPIApp();
 
@@ -10,6 +10,7 @@ userRoutes.openapi(
     method: 'get',
     path: '/{id}',
     tags: ['Users'],
+    middleware: [verifySession()],
     request: { params: UserParamSchema },
     responses: {
       200: {
@@ -42,6 +43,7 @@ userRoutes.openapi(
     method: 'get',
     path: '/',
     tags: ['Users'],
+    middleware: [verifySession()],
     request: { query: ListUsersQuerySchema },
     responses: {
       200: {
@@ -63,6 +65,7 @@ userRoutes.openapi(
     }
   }),
   async (c) => {
+    console.log(c.req.raw.headers);
     let { limit, page  } = c.req.valid('query');
     const user = await new UserService(db).listUsers(limit, page);
     return c.json(user, 200)
